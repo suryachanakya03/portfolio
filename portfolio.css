@@ -329,6 +329,7 @@ section.resume-section{
 .project-card:hover {
   transform: translateY(-8px) scale(1);
   box-shadow: 0 20px 20px rgba(76, 74, 74, 0.3);
+  cursor: pointer;
 }
 
 
