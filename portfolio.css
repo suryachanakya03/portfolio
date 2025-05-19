@@ -10,31 +10,90 @@ body {
     padding-left: 17rem; 
   }
 }
-  
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #343a40; 
+
+/* Hamburger button styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #BD5D38;
+  border: none;
+  border-radius: 8px;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1200;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 26px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
 }
 
-.subheading {
-  text-transform: uppercase;
-  font-weight: 500;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 1.35rem; 
+/* Hamburger open animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-#sideNav .navbar-nav .nav-item .nav-link {
-  font-weight: 600;
-  text-transform: uppercase; 
+/* Overlay for mobile nav */
+#nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+#nav-overlay.active {
+  display: block;
 }
 
+/* Responsive sidebar for mobile */
+@media (max-width: 991.98px) {
+  #sideNav {
+    position: fixed;
+    top: 0;
+    left: -100vw; /* Hide sidebar by default */
+    width: 240px;
+    height: 100vh;
+    background: #fff;
+    z-index: 1100;
+    transition: left 0.3s;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding-top: 54px;
+    padding-left: 0;
+    text-align: left;
+  }
+  #sideNav.open {
+    left: 0;
+  }
+  .hamburger {
+    display: flex;
+  }
+  body {
+    padding-left: 0;
+    padding-top: 54px;
+  }
+  section.resume-section {
+    margin-left: 0;
+    padding-top: 70px;
+  }
+}
+
+/* Sidebar (desktop) */
 @media (min-width: 992px) {
   #sideNav {
     text-align: center;
@@ -74,6 +133,30 @@ h6 {
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block; 
   } 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #343a40; 
+}
+
+.subheading {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.35rem; 
+}
+
+#sideNav .navbar-nav .nav-item .nav-link {
+  font-weight: 600;
+  text-transform: uppercase; 
 }
 
 section.resume-section {
@@ -174,10 +257,17 @@ section.resume-section{
   padding-bottom: 40px;
   font-size: 18px;
 }
-.poi{
-  display: contents;
+
+/* Make sure .poi is a horizontal list with no bullets, spacing on all screens */
+.poi {
+  display: flex;
   justify-content: flex-start;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 .resume-item {
   display: block;
   margin-bottom: 30px;
@@ -204,12 +294,24 @@ section.resume-section{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.item{
+.item {
   display: grid;
-  grid-template-columns:repeat(3,1fr) ; /* Wrap items if they don't fit */
-  gap: 20px; /* Space between items */
+  grid-template-columns:repeat(3,1fr) ;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
+@media (max-width: 768px) {
+  .item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .item {
+    grid-template-columns: 1fr;
+  }
+}
 
 .project-card {
   background:  #024769;
@@ -243,6 +345,15 @@ section.resume-section{
   max-width: 800px;
 }
 
+@media (max-width: 900px) {
+  .pal {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    width: 100%;
+  }
+}
+
 .ion{
   height: 60px;
   width: 60px;
@@ -265,13 +376,24 @@ section.resume-section{
   max-width: 100%;
   max-height: 100%;
   margin: 0 auto;
-  padding: 20px; /* Dark text for contrast */
+  padding: 20px;
 }
 
 .contact-container {
   display: flex;
   justify-content: space-around;
 }
+@media (max-width: 700px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .right ul {
+    text-align: left;
+  }
+}
+
 .left{
   text-align: left;
 }
@@ -285,22 +407,24 @@ section.resume-section{
   list-style: none;
   text-align: right;
   padding: 0;
+  margin: 0;
+}
+.right li {
+  margin-bottom: 10px;
 }
 .right a {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-}
-.right img {
-  height: 45px; /* Adjust icon size */
-  width: 45px;
-  margin-right: 10px;
-}
-.right a{
-  color:black;
+  color: black;
   text-decoration: none;
   font-size: 1.3rem;
 }
+.right img {
+  height: 45px;
+  width: 45px;
+  margin-right: 10px;
+}
+
 .but{
   background-color: black;
   color:whitesmoke;
@@ -331,7 +455,6 @@ section.resume-section{
   box-shadow: 0 20px 20px rgba(76, 74, 74, 0.3);
   cursor: pointer;
 }
-
 
 html {
   scroll-behavior: smooth;
