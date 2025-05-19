@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
   <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="portfolio.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Hamburger button for mobile -->
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <!-- Overlay for mobile nav -->
+  <div id="nav-overlay"></div>
+
+  <!-- Sidebar Navigation -->
   <nav class="navbar bg-primary" id="sideNav">
     <a class="navbar-brand" href="#page_top"></a>
     <span class="denes">
-      <img class="img-profile" src="images/chanakya photo.jpeg">
+      <img class="img-profile" src="images/chanakya photo.jpeg" alt="Profile Picture">
     </span>
     <div class="navbar-collapse">
       <ul class="navbar-nav">
@@ -25,6 +36,9 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#project">Projects</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -32,25 +46,23 @@
   <div>
     <section class="resume-section" id="about">
       <div>
-      <h1 class="name">
-        SURYA  
-        <span class="text-primary">CHANAKYA</span>
-      </h1>
+        <h1 class="name">
+          SURYA  
+          <span class="text-primary">CHANAKYA</span>
+        </h1>
       </div>
       <div class="subheading">
         SARADA NAGAR 2nd LINE,NARSIPATNAM (531116) - 9959487460 - 
         <a href="mailto:suryachanakyasripada03@gmail.com">suryachanakyasripada03@gmail.com</a>
       </div>
-      <!--tentative description can be changed  -->
       <p id="descrip">As a front-end developer, I focus on delivering seamless user experiences by 
         mastering modern web technologies to create responsive, user-friendly interfaces while 
         continuously enhancing my skills to build dynamic and impactful web applications.</p>
-      <!--icons to be placed-->
       <ul class="poi">
-        <img src="images/facebook.png" class="icon">
-        <img src="images/twitter.png" class="icon">
-        <img src="images/linkedin.png" class="icon">
-        <img src="images/github.png" class="icon">
+        <li><img src="images/facebook.png" class="icon" alt="Facebook"></li>
+        <li><img src="images/twitter.png" class="icon" alt="Twitter"></li>
+        <li><img src="images/linkedin.png" class="icon" alt="LinkedIn"></li>
+        <li><img src="images/github.png" class="icon" alt="GitHub"></li>
       </ul>
       <br>
       <a href="#contact"><button class="but">Contact Me</button></a>
@@ -68,7 +80,6 @@
           <div class="sub">Gayatri Vidya Parishad College of Engineering</div>
           <p>CGPA: 8.27</p>
         </div>
-    
         <div class="resume-item">
           <div class="resume-head">
             <h3>Intermediate</h3>
@@ -79,7 +90,6 @@
           <div class="sub">Sri Chaitanya Junior College</div>
           <p>Percentage: 95.2%</p>
         </div>
-    
         <div class="resume-item">
           <div class="resume-head">
             <h3>X-th</h3>
@@ -90,7 +100,6 @@
           <div class="sub">Gowtham High School</div>
           <p>CGPA: 9.8</p>
         </div>
-    
       </div>
     </section>
     <section class="resume-section" id="skill">
@@ -98,38 +107,38 @@
         <h2>SKILLS</h2>
         <div class="subheading">Programming Languages & Tools</div>
         <ul class="item">
-          <div >
-            <img src="images/html1.png" class="ion">
+          <li>
+            <img src="images/html1.png" class="ion" alt="HTML">
             <div class="ali"><p>HTML</p></div>
-          </div>
-          <div>
-            <img src="images/css31.png" class="ion">
+          </li>
+          <li>
+            <img src="images/css31.png" class="ion" alt="CSS">
             <div class="ali"><p>CSS</p></div>
-          </div> 
-          <div>
-            <img src="images/js.png" class="ion">
+          </li>
+          <li>
+            <img src="images/js.png" class="ion" alt="JavaScript">
             <div class="ali"><p>JavaScript</p></div>
-          </div>
-          <div>
-            <img src="images/react.png" class="ion">
+          </li>
+          <li>
+            <img src="images/react.png" class="ion" alt="React">
             <div class="ali"><p>React</p></div>
-          </div>
-          <div>
-            <img src="images/bi.png" class="ion">
+          </li>
+          <li>
+            <img src="images/bi.png" class="ion" alt="PowerBI">
             <div class="ali"><p>PowerBI</p></div>
-          </div>
-          <div>
-            <img src="images/c++.png" class="ion">
+          </li>
+          <li>
+            <img src="images/c++.png" class="ion" alt="C/C++">
             <div class="ali"><p>C/C++</p></div>
-          </div>
-          <div>
-            <img src="images/python.png" class="ion">
+          </li>
+          <li>
+            <img src="images/python.png" class="ion" alt="Python">
             <div class="ali"><p>Python</p></div>
-          </div>
-          <div>
-            <img src="images/mysql.png" class="ion">
+          </li>
+          <li>
+            <img src="images/mysql.png" class="ion" alt="SQL">
             <div class="ali"><p>SQL</p></div>
-          </div>
+          </li>
         </ul>
       </div>
     </section>
@@ -137,55 +146,56 @@
       <h2>Projects</h2>
       <div class="pal">
         <div class="project-card">
-          <div class="image-container"><a href="https://suryachanakya03.github.io/rps-game/rockpaperscissor.html"><img src="images/rps.png" ></a></div>
+          <div class="image-container"><a href="https://suryachanakya03.github.io/rps-game/rockpaperscissor.html"><img src="images/rps.png" alt="Rock Paper Scissor"></a></div>
           <h3>Rock Paper Scissor</h3>
           <p>Developed a Rock-Paper-Scissors game using HTML, CSS, and JavaScript, incorporating 
             interactive UI and dynamic gameplay for an engaging user experience.</p>
         </div>
         <div class="project-card">
-          <div class="image-container"><img src="images/knock.jpeg" ></div>
-          <h3 >Knock Pattern Recognition Lock</h3>
+          <div class="image-container"><img src="images/knock.jpeg" alt="Knock Pattern Recognition Lock"></div>
+          <h3>Knock Pattern Recognition Lock</h3>
           <p>Implemented and designed a knock pattern recognition lock using Arduino Nano, 
             relay modules, and sensors, integrating IoT for secure access, pattern detection,
             and monitoring.</p>
         </div>
         <div class="project-card">
-          <div class="image-container"><img src="images/price.jpg" alt=""></div>
+          <div class="image-container"><img src="images/price.jpg" alt="E-commerce Product Price Comparison"></div>
           <h3>E-commerce Product Price Comparison</h3>
           <p>Developed an automated robust solution for real-time e-commerce product price comparisons
-             using Python,Webscraping and BeautifulSoup for efficient data extraction</p>
+            using Python, Webscraping and BeautifulSoup for efficient data extraction</p>
         </div>
         <div class="project-card">
-          <div class="image-container"><img src="images/port.jpg" ></div>
+          <div class="image-container"><img src="images/port.jpg" alt="Portfolio"></div>
           <h3>Portfolio</h3>
           <p>Built a responsive portfolio website using HTML, CSS, and JavaScript to showcase
             projects and skills with an interactive design.</p>
         </div>
       </div>
-      <!--projects should be added-->
     </section>
-    </div>
-    <section class="contact-section" id="Contact">
-      <footer class="foot">
-        <div class="contact-container">
-          <div class="left">
-            <h2>Contact Me</h2>
-            <em>Let's collaborate! Feel free to get in touch</em>
-          </div>
-          <div class="right">
-            <ul>
-              
-              <a href="mailto:suryachanakyasripada03@gmail.com"><img src="images/mail.png">suryachanakyasripada03@gmail.com</a>
-              
-              <a href="www.linkedin.com/in/surya-chanakya-sripada-7ba54523b"><img src="images/linkedin1.png">linkedin.com/surya-chanakya</a>
-
-              <a href="https://github.com/suryachanakya03"><img src="images/github1.png">github.com/suryachanakya03</a>
-            </ul>
-            <!-- option to change to input space and message space-->
-          </div>
+  </div>
+  <section class="contact-section" id="contact">
+    <footer class="foot">
+      <div class="contact-container">
+        <div class="left">
+          <h2>Contact Me</h2>
+          <em>Let's collaborate! Feel free to get in touch</em>
         </div>
-      </footer>
-    </section>
+        <div class="right">
+          <ul>
+            <li>
+              <a href="mailto:suryachanakyasripada03@gmail.com"><img src="images/mail.png" alt="Email">suryachanakyasripada03@gmail.com</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/surya-chanakya-sripada-7ba54523b"><img src="images/linkedin1.png" alt="LinkedIn">linkedin.com/surya-chanakya</a>
+            </li>
+            <li>
+              <a href="https://github.com/suryachanakya03"><img src="images/github1.png" alt="GitHub">github.com/suryachanakya03</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </section>
   <script src="portfolio.js"></script>
 </body>
 </html>
